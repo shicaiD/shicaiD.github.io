@@ -1,0 +1,920 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="你没有得到，是因为你还没有那么想要得到" />
+
+
+
+  <meta name="keywords" content="java,数据结构,矩阵," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="数据结构之数组结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组结构">
+<meta property="og:url" content="http://shicaid.github.io/2016/06/01/数组结构/index.html">
+<meta property="og:site_name" content="shicaiD's Blog">
+<meta property="og:description" content="数据结构之数组结构">
+<meta property="og:updated_time" content="2016-06-01T16:13:11.415Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数组结构">
+<meta name="twitter:description" content="数据结构之数组结构">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> 数组结构 | shicaiD's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?deeaffb12c4233be507ba85e60a86b77";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">shicaiD's Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            <i class="menu-item-icon icon-next-commonweal"></i> <br />
+            公益404
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              数组结构
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-06-01T22:51:37+08:00" content="2016-06-01">
+            2016-06-01
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/数据结构/" itemprop="url" rel="index">
+                  <span itemprop="name">数据结构</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <!--
+              <a href="/2016/06/01/数组结构/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/01/数组结构/" itemprop="commentsCount"></span>
+              </a>
+              -->
+              <a href="/2016/06/01/数组结构/#comments" itemprop="discussionUrl">
+                <span>评论</span>
+              </a>
+            </span>
+          
+        
+
+	
+		  	 <span id="/2016/06/01/数组结构/"class="leancloud_visitors"  data-flag-title="数组结构">
+            &nbsp; | &nbsp; 阅读次数
+            </span>
+		  
+
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>转载请注明来源：<a href="https://shicaiD.github.io">https://shicaiD.github.io</a></p>
+<blockquote>
+<p>此篇文章主要以矩阵的相关知识来介绍数组结构，至于数组的定义，<a href="http://blog.csdn.net/e421083458/article/details/8146236" target="_blank" rel="external">这篇文章</a> 解释的挺好的，在此就不赘述了。我们直接步入正题吧。</p>
+</blockquote>
+<h3 id="矩阵相加"><a href="#矩阵相加" class="headerlink" title="矩阵相加"></a>矩阵相加</h3><p>&emsp;&emsp;什么是矩阵呢？简单说，矩阵是用来描述二维数组的最好方式，也就是说，一个矩阵就相当于一个二维数组。<br>例如： $$A_{m*n}+B_{m*n}=C_{m*n}$$ <br>即：<br> $$\begin{bmatrix}1 & 3 & 5\\7 & 9 & 11\\13&15&17\end{bmatrix} 
+\qquad+\qquad
+\begin{bmatrix}2 & 4 & 6\\8 & 10 & 12\\14&16&18\end{bmatrix} 
+\qquad=\qquad
+\begin{bmatrix}3 & 7 & 11\\15 & 19 & 23\\27&31&35\end{bmatrix} 
+$$ <br>实现起来很简单：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span><br><span class="line"> * 矩阵相加</span><br><span class="line"> * arrA[<span class="string"></span>][<span class="symbol"></span>]、arrB[<span class="string"></span>][<span class="symbol"></span>]、arrResult[][]大小必须相同</span><br><span class="line"> <span class="bullet">* @param arrA m*</span>n(m行n列,以下形如m*n皆为此)</span><br><span class="line"> <span class="bullet">* @param arrB m*</span>n</span><br><span class="line"> <span class="bullet">* @param arrResult 相加结果 m*</span>n</span><br><span class="line"> */</span></span></span><br><span class="line">public <span class="keyword">static</span> <span class="keyword">void</span> matrixAdd(<span class="built_in">int</span> arrA[][],<span class="built_in">int</span> arrB[][],<span class="built_in">int</span> arrResult[][])&#123;</span><br><span class="line"> <span class="keyword">if</span> (arrA == <span class="keyword">null</span> || arrB == <span class="keyword">null</span> || arrResult == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"传递非法参数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">int</span> row = arrA.length;</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">int</span> col = arrA[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">if</span> (row != arrB.length || row != arrResult.length ||</span><br><span class="line">            col != arrB[<span class="number">0</span>].length || col != arrResult[<span class="number">0</span>].length)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"矩阵非法相加"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123; <span class="comment">//行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123; <span class="comment">//列</span></span><br><span class="line">            arrResult[i][j] = arrA[i][j] + arrB[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们传入以下数据</p>
+<blockquote>
+int arrA[][] = {{1,3,5},{7,9,11},{13,15,17}};<br>int arrB[][] = {{2,4,6},{8,10,12},{14,16,18}};<br> int arrResult[][] = new int[3][3];
+</blockquote>
+<p>打印结果：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">矩阵<span class="string">A:</span></span><br><span class="line"><span class="number">1</span> 		<span class="number">3</span> 		<span class="number">5</span> 		</span><br><span class="line"><span class="number">7</span> 		<span class="number">9</span> 		<span class="number">11</span> 		</span><br><span class="line"><span class="number">13</span> 		<span class="number">15</span> 		<span class="number">17</span> 		</span><br><span class="line">矩阵<span class="string">B:</span></span><br><span class="line"><span class="number">2</span> 		<span class="number">4</span> 		<span class="number">6</span> 		</span><br><span class="line"><span class="number">8</span> 		<span class="number">10</span> 		<span class="number">12</span> 		</span><br><span class="line"><span class="number">14</span> 		<span class="number">16</span> 		<span class="number">18</span> 		</span><br><span class="line">结果:</span><br><span class="line"><span class="number">3</span> 		<span class="number">7</span> 		<span class="number">11</span> 		</span><br><span class="line"><span class="number">15</span> 		<span class="number">19</span> 		<span class="number">23</span> 		</span><br><span class="line"><span class="number">27</span> 		<span class="number">31</span> 		<span class="number">35</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="矩阵相乘"><a href="#矩阵相乘" class="headerlink" title="矩阵相乘"></a>矩阵相乘</h3><p>&emsp;&emsp;在我看来，矩阵的相关运算乘法是最为难理解的，我们先看看数学中矩阵是怎样相乘的。<br>&emsp;&emsp;假设两个矩阵A和B相乘，必须满足一个条件：A为一个m<em>n的矩阵，B必须为一个n</em>p的矩阵。那么A<em>B的结果是一个m</em>p的矩阵C(m,n,p相互独立且都&gt;0)。运算过程如下：<br>
+$$\begin{bmatrix}a_{11} & ...... & a_{1n}\\... & ... & ...\\a_{m1}&......&a_{mn}\end{bmatrix}_{m*n}
+\qquad*\qquad
+\begin{bmatrix}b_{11} & ...... & b_{1p}\\... & ... & ...\\b_{n1}&......&b_{np}\end{bmatrix}_{n*p}
+\qquad=\qquad
+\begin{bmatrix}c_{11} & ...... & c_{1p}\\... & ... & ...\\c_{m1}&......&c_{mp}\end{bmatrix}_{m*p}
+$$
+<br>$c_{11}$的结果是取矩阵A的第1行元素依次和矩阵B的第1列元素相乘之和，$c_{ij}$的坐标是(取A的第i行)(取B的第j列)所得<br>$c_{11} = a_{11}*b_{11}+a_{12}*b_{21}+a_{13}*b_{31}+...+a_{1n}*b_{n1}$<br>$\vdots $<br>$c_{ij} = a_{i1}*b_{1j}+a_{i2}*b_{2j}+a_{i3}*b_{3j}+...+a_{in}*b_{nj}$<br>$\vdots $<br>$c_{mp} = a_{m1}*b_{1p}+a_{m2}*b_{2p}+a_{m3}*b_{3p}+...+a_{mn}*b_{np}$<br>多练习几遍就能理解了，下面我们用代码来实现：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 矩阵相乘</span><br><span class="line"> * <span class="doctag">@param</span> arrA m*n</span><br><span class="line"> * <span class="doctag">@param</span> arrB n*p</span><br><span class="line"> * <span class="doctag">@param</span> arrResult m*p</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">matrixPuls</span><span class="params">(<span class="keyword">int</span> arrA[][],<span class="keyword">int</span> arrB[][],<span class="keyword">int</span> arrResult[][])</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (arrA == <span class="keyword">null</span> || arrB == <span class="keyword">null</span> || arrResult == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"传递非法参数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> m = arrA.length;<span class="comment">//arrA行数也是arrResult行数</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> n = arrB.length;<span class="comment">//arrB行数也是arrA列数</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> p = arrB[<span class="number">0</span>].length;<span class="comment">//arrB列数也是arrResult列数</span></span><br><span class="line">    <span class="keyword">if</span> (m != arrResult.length || n != arrA[<span class="number">0</span>].length || p != arrResult[<span class="number">0</span>].length)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"矩阵非法相乘"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//临时储存计算后的每一行的数据</span></span><br><span class="line">    <span class="keyword">int</span> resultRow[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123; <span class="comment">//arrA的行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123; <span class="comment">// 初始化resultRow的值</span></span><br><span class="line">            resultRow[j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; p; k++) &#123;  <span class="comment">//arrB的列</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123; <span class="comment">//arrA 的列</span></span><br><span class="line">                resultRow[k] += arrA[i][j] * arrB[j][k];<span class="comment">//arrB[j][k]这里要为k不能是i，因为与arrA[i]行数组相乘的arrB列数组要右移</span></span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"in matrixPuls() : resultRow["</span>+k+<span class="string">"] = "</span>+resultRow[k]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//完成resultRow的数据填充</span></span><br><span class="line">        <span class="comment">//将resultRow的数据加进arrResult[i]行中</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; p; j++) &#123; <span class="comment">//arrResult列</span></span><br><span class="line">            arrResult[i][j] = resultRow[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样，我们把以下数据传入:</p>
+<blockquote>
+<p>int arrA[][] = {{1,3,5},{7,9,11},{13,15,17}};<br>int arrB[][] = {{2,4,6},{8,10,12},{14,16,18}};<br>int arrResult[][] = new int[3][3];</p>
+</blockquote>
+<p>打印结果：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">矩阵<span class="string">A:</span></span><br><span class="line"><span class="number">1</span> 		<span class="number">3</span> 		<span class="number">5</span> 		</span><br><span class="line"><span class="number">7</span> 		<span class="number">9</span> 		<span class="number">11</span> 		</span><br><span class="line"><span class="number">13</span> 		<span class="number">15</span> 		<span class="number">17</span> 		</span><br><span class="line">矩阵<span class="string">B:</span></span><br><span class="line"><span class="number">2</span> 		<span class="number">4</span> 		<span class="number">6</span> 		</span><br><span class="line"><span class="number">8</span> 		<span class="number">10</span> 		<span class="number">12</span> 		</span><br><span class="line"><span class="number">14</span> 		<span class="number">16</span> 		<span class="number">18</span> 		</span><br><span class="line">结果:</span><br><span class="line"><span class="number">96</span> 			<span class="number">114</span> 		<span class="number">132</span> 		</span><br><span class="line"><span class="number">240</span> 		<span class="number">294</span> 		<span class="number">348</span> 		</span><br><span class="line"><span class="number">384</span> 		<span class="number">474</span> 		<span class="number">564</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h3><p>&emsp;&emsp;这个就简单了，就是$a_{ij}$和$a_{ji}$交换位置，直接上代码：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 矩阵倒置</span><br><span class="line"> * <span class="doctag">@param</span> previewArr 倒置前 m*n</span><br><span class="line"> * <span class="doctag">@param</span> invertedArr 倒置后 n*m</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">matrixInvert</span><span class="params">(<span class="keyword">int</span> previewArr[][],<span class="keyword">int</span> invertedArr[][])</span></span>&#123;</span><br><span class="line"> <span class="keyword">if</span> (previewArr == <span class="keyword">null</span> || invertedArr == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"传递非法参数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> m = previewArr.length;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> n = previewArr[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">if</span> (n != invertedArr.length || m != invertedArr[<span class="number">0</span>].length)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"矩阵非法倒置"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            invertedArr[j][i] = previewArr[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>将arrA[][] = {{1,3,5},{7,9,11},{13,15,17}}带入的<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">矩阵<span class="keyword">A</span>:</span><br><span class="line"><span class="number">1</span> 		<span class="number">3</span> 		<span class="number">5</span> 		</span><br><span class="line"><span class="number">7</span> 		<span class="number">9</span> 		<span class="number">11</span> 		</span><br><span class="line"><span class="number">13</span> 		<span class="number">15</span> 		<span class="number">17</span> 		</span><br><span class="line">结果:</span><br><span class="line"><span class="number">1</span> 		<span class="number">7</span> 		<span class="number">13</span> 		</span><br><span class="line"><span class="number">3</span> 		<span class="number">9</span> 		<span class="number">15</span> 		</span><br><span class="line"><span class="number">5</span> 		<span class="number">11</span> 		<span class="number">17</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="压缩稀疏矩阵"><a href="#压缩稀疏矩阵" class="headerlink" title="压缩稀疏矩阵"></a>压缩稀疏矩阵</h3><p>&emsp;&emsp;所谓稀疏矩阵，就是一个矩阵中大部分的元素都为0。如果我们直接使用这个稀疏矩阵，将造成内存的浪费，而这些浪费我们是可以避免的，对，就是用压缩稀疏矩阵的方法。<br>即将矩阵$\begin{bmatrix}1&0&0&3&0&0&0\\0&0&9&0&0& 11&0\\13&0&0&0&0&0&15\\0&0&0&0&0&0&0\\0&0&7&0&0&0&0\end{bmatrix}_{5*7}$压缩为形如$\begin{bmatrix}5&7&7\\1&1&1\\1&4&3\\2&3&9\\2&6&11\\3&1&13\\3&7&15\\5&3&7\end{bmatrix}_{8*3}$的矩阵。<br>我们可以用表格来形容压缩后的矩阵，第一行的元素从左到右的含义分别是原矩阵的行数、原矩阵的列数、原矩阵不为0元素的总个数；从第二行开始以后，每一行的含义是：原矩阵的第i行第j列的元素为k。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">行</th>
+<th style="text-align:center">列</th>
+<th style="text-align:center">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:center">i1</td>
+<td style="text-align:center">j1</td>
+<td style="text-align:center">k1</td>
+</tr>
+<tr>
+<td style="text-align:center">i2</td>
+<td style="text-align:center">j2</td>
+<td style="text-align:center">k2</td>
+</tr>
+</tbody>
+</table>
+<p>实现起来也不难：<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 压缩稀疏矩阵</span><br><span class="line"> * 将大型的sparseArr矩阵压缩为小型的p*3矩阵compressArr</span><br><span class="line"> * @param sparseArr m*n</span><br><span class="line"> * @return</span><br><span class="line"> * 压缩后的矩阵ompressArr</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] matrixSparse(<span class="keyword">int</span> sparseArr[][]) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sparseArr == <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"传递非法参数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> row = sparseArr.length;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">int</span> col = sparseArr[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">int</span> temp[][] = <span class="keyword">new</span> <span class="keyword">int</span>[row*col][<span class="number">3</span>];<span class="comment">//row*col以防不够</span></span><br><span class="line">    <span class="keyword">int</span> compressArr[][] = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">sum</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//遍历sparseArr并压缩至temp</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">            <span class="comment">//空出temp第一行来存放压缩前矩阵的信息</span></span><br><span class="line">            <span class="keyword">int</span> value = sparseArr[i][j];</span><br><span class="line">            <span class="keyword">if</span> (value != <span class="number">0</span>)&#123;</span><br><span class="line">                ++<span class="keyword">sum</span>;</span><br><span class="line">                temp[<span class="keyword">sum</span>][<span class="number">0</span>] = i+<span class="number">1</span>;</span><br><span class="line">                temp[<span class="keyword">sum</span>][<span class="number">1</span>] = j+<span class="number">1</span>;</span><br><span class="line">                temp[<span class="keyword">sum</span>][<span class="number">2</span>] = value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    temp[<span class="number">0</span>][<span class="number">0</span>] = row;</span><br><span class="line">    temp[<span class="number">0</span>][<span class="number">1</span>] = col;</span><br><span class="line">    temp[<span class="number">0</span>][<span class="number">2</span>] = <span class="keyword">sum</span>;</span><br><span class="line">    compressArr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="keyword">sum</span>+<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="keyword">sum</span>; i++) &#123;</span><br><span class="line">        compressArr[i][<span class="number">0</span>] = temp[i][<span class="number">0</span>];</span><br><span class="line">        compressArr[i][<span class="number">1</span>] = temp[i][<span class="number">1</span>];</span><br><span class="line">        compressArr[i][<span class="number">2</span>] = temp[i][<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> compressArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>传入矩阵       </p>
+<blockquote>
+final int sparseArr[][] = {
+<pre><code>{% raw %}{0,0,0,0,0,3,0,0,5,0,0}{% endraw %},
+{% raw %}{0,0,0,1,0,0,0,0,0,0,0}{% endraw %},
+{% raw %}{0,0,0,0,0,0,8,0,0,0,0}{% endraw %},
+{% raw %}{0,0,0,0,0,0,0,0,0,0,0}{% endraw %},
+{% raw %}{% raw %}{0,9,0,0,0,0,0,0,5,0,0}{% endraw %},
+{0,0,0,0,2,0,0,0,0,7,0}}{% endraw %};
+</code></pre></blockquote>
+<p>打印结果：<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">sparseArr:</span></span><br><span class="line"><span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">3</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">5</span> 		<span class="number">0</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">1</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">8</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="number">0</span> 		<span class="number">9</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">5</span> 		<span class="number">0</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">2</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">0</span> 		<span class="number">7</span> 		<span class="number">0</span> 		</span><br><span class="line"><span class="symbol">result:</span></span><br><span class="line"><span class="number">6</span> 		<span class="number">11</span> 		<span class="number">8</span> 		</span><br><span class="line"><span class="number">1</span> 		<span class="number">6</span> 		<span class="number">3</span> 		</span><br><span class="line"><span class="number">1</span> 		<span class="number">9</span> 		<span class="number">5</span> 		</span><br><span class="line"><span class="number">2</span> 		<span class="number">4</span> 		<span class="number">1</span> 		</span><br><span class="line"><span class="number">3</span> 		<span class="number">7</span> 		<span class="number">8</span> 		</span><br><span class="line"><span class="number">5</span> 		<span class="number">2</span> 		<span class="number">9</span> 		</span><br><span class="line"><span class="number">5</span> 		<span class="number">9</span> 		<span class="number">5</span> 		</span><br><span class="line"><span class="number">6</span> 		<span class="number">5</span> 		<span class="number">2</span> 		</span><br><span class="line"><span class="number">6</span> 		<span class="number">10</span> 		<span class="number">7</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="除此之外，还有上-下三角矩阵"><a href="#除此之外，还有上-下三角矩阵" class="headerlink" title="除此之外，还有上/下三角矩阵"></a>除此之外，还有上/下三角矩阵</h3><p>&emsp;&emsp;上/下三角矩阵有左上三角矩阵、右上三角矩阵、左下三角矩阵、右下三角矩阵，在此就以右上三角矩阵为例进行分析。<br>&emsp;&emsp;右上三角矩阵，也就是大小为n*n矩阵A的对角线(0,0)–(n,n)下方的元素全为0。也就是：<br>$\begin{bmatrix}a_{11}&a_{12}&\cdots&a_{n1}\\0&a_{22}&\cdots&a_{n2}\\\vdots&\ddots&\ddots&\vdots\\0&\cdots&0&a_{nn}\end{bmatrix}_{n*n}$</p>
+<ul>
+<li>A(i,j)$\left\{\begin{matrix}A(i,j)=0&amp;i&gt;j\\A(i,j)=a_{ij}&amp;i&lt;=j\end{matrix}\right.$</li>
+<li>共有1+2+…+n=$\frac{n*(n+1)}{2}$个非零元素</li>
+</ul>
+<p>&emsp;&emsp;此时我们可以用压缩稀疏矩阵的方法或直接用二维数组保存这矩阵数据，但是总感觉有点“杀猪用牛刀”，这里我用的是一个一维数组来保存。先保存矩阵第一行数据，接着保存第二行…直到保存完全。这样我们会得到一个数字B[$\frac{n*(n+1)}{2}$]。<br>&emsp;&emsp;我们假设$a_{ij}$在数组B的k位置，即B[k]中。然后我们很容易发现：k=n*(i-1)-$\frac{i*(i-1)}{2}$+j。当然，如果你是一列一列保存进数组B中的话，k=$\frac{j*(j-1)}{2}$+i。所以对于任意一个$a_{ij}$，我们都可以找到对应的B[k]。相关代码比较简单，就略了。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/数据结构/" rel="tag">#数据结构</a>
+          
+            <a href="/tags/矩阵/" rel="tag">#矩阵</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/31/hello-world/" rel="next">Hello World</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+            <!-- 多说热评文章-->
+            <p>热评文章</p>
+            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2016/06/01/数组结构/"
+                   data-title="数组结构" data-url="http://shicaid.github.io/2016/06/01/数组结构/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="shicaiD" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">shicaiD</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">你没有得到，是因为你还没有那么想要得到</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/shicaiD" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        <div class="links-of-friendly motion-element">
+          
+        </div>
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵相加"><span class="nav-number">1.</span> <span class="nav-text">矩阵相加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵相乘"><span class="nav-number">2.</span> <span class="nav-text">矩阵相乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转置矩阵"><span class="nav-number">3.</span> <span class="nav-text">转置矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩稀疏矩阵"><span class="nav-number">4.</span> <span class="nav-text">压缩稀疏矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#除此之外，还有上-下三角矩阵"><span class="nav-number">5.</span> <span class="nav-text">除此之外，还有上/下三角矩阵</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shicaiD</span>
+
+  <div class="powered-by"></div>
+  <div class="powered-by">
+    Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+  </div>
+
+  <!-- busuanzi -->
+  
+    <div class="powered-by">
+    <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+    </div>
+  
+
+</div>
+
+<!--
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+
+<!--
+<div class="powered-by"></div>
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+-->
+
+<!-- busuanzi -->
+<!--
+
+  <div class="theme-info">
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_site_pv">
+        本站总访问量<a class="theme-link"><span id="busuanzi_value_site_pv"></span></a>次
+    </span>
+</div>
+
+-->
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shicaiD"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+  	  <script type="text/javascript">
+  		var duoshuo_user_ID = 6290508906883974000
+  	  </script>
+     
+  	<script src="/js/ua-parser.min.js"></script>
+  	<script src="/js/hook-duoshuo.js"></script>
+  
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+
+    
+  	 <!-- custom analytics part create by xiamo -->
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("VDFMdXDDd71Kpr0NOfpONQNy-gzGzoHsz", "KNS3asdyNBjk5AYIXDOOipWh");</script>
+<script>
+function showTime(Counter) {
+	var query = new AV.Query(Counter);
+	$(".leancloud_visitors").each(function() {
+		var url = $(this).attr("id").trim();
+		query.equalTo("url", url);
+		query.find({
+			success: function(results) {
+				if (results.length == 0) {
+					var content = $(document.getElementById(url)).text() + ': 0';
+					$(document.getElementById(url)).text(content);
+					return;
+				}
+				for (var i = 0; i < results.length; i++) {
+					var object = results[i];
+					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+					$(document.getElementById(url)).text(content);
+				}
+			},
+			error: function(object, error) {
+				console.log("Error: " + error.code + " " + error.message);
+			}
+		});
+
+	});
+}
+
+function addCount(Counter) {
+	var Counter = AV.Object.extend("Counter");
+	url = $(".leancloud_visitors").attr('id').trim();
+	title = $(".leancloud_visitors").attr('data-flag-title').trim();
+	var query = new AV.Query(Counter);
+	query.equalTo("url", url);
+	query.find({
+		success: function(results) {
+			if (results.length > 0) {
+				var counter = results[0];
+				counter.fetchWhenSave(true);
+				counter.increment("time");
+				counter.save(null, {
+					success: function(counter) {
+						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(counter, error) {
+						console.log('Failed to save Visitor num, with error message: ' + error.message);
+					}
+				});
+			} else {
+				var newcounter = new Counter();
+				newcounter.set("title", title);
+				newcounter.set("url", url);
+				newcounter.set("time", 1);
+				newcounter.save(null, {
+					success: function(newcounter) {
+					    console.log("newcounter.get('time')="+newcounter.get('time'));
+						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+						$(document.getElementById(url)).text(content);
+					},
+					error: function(newcounter, error) {
+						console.log('Failed to create');
+					}
+				});
+			}
+		},
+		error: function(error) {
+			console.log('Error:' + error.code + " " + error.message);
+		}
+	});
+}
+$(function() {
+	var Counter = AV.Object.extend("Counter");
+	if ($('.leancloud_visitors').length == 1) {
+		addCount(Counter);
+	} else if ($('.post-title-link').length > 1) {
+		showTime(Counter);
+	}
+}); 
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+</body>
+</html>
