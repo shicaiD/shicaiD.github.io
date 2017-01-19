@@ -37,13 +37,31 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
+<meta name="description" content="function changeBackColor() {
+        var aList = document.getElementsByTagName(&quot;a&quot;);
+     
+        for(var i in aList){
+      
+            if(aList.item(i).getAttribute(">
 <meta property="og:type" content="website">
 <meta property="og:title" content="shicaiD's Blog">
 <meta property="og:url" content="http://shicaid.github.io/404.html">
 <meta property="og:site_name" content="shicaiD's Blog">
-<meta property="og:updated_time" content="2017-01-12T11:31:07.624Z">
+<meta property="og:description" content="function changeBackColor() {
+        var aList = document.getElementsByTagName(&quot;a&quot;);
+     
+        for(var i in aList){
+      
+            if(aList.item(i).getAttribute(">
+<meta property="og:updated_time" content="2017-01-13T07:11:10.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shicaiD's Blog">
+<meta name="twitter:description" content="function changeBackColor() {
+        var aList = document.getElementsByTagName(&quot;a&quot;);
+     
+        for(var i in aList){
+      
+            if(aList.item(i).getAttribute(">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -193,12 +211,22 @@
   <meta name="robots" content="all">
   <meta name="robots" content="index,follow">
 </head>
-<body>
-
-<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="http://shicaiD.github.io" homepagename="回到我的主页">
+<body onload="changeBackColor();">
+  <script type="text/javascript" src="http://www.qq.com/404/search_children.js" style="background: #FFFFFF;" charset="utf-8" homepageurl="http://shicaiD.github.io" homepagename="回到我的主页">
+  </script>
+  </body>
+<script>
+    function changeBackColor() {
+        var aList = document.getElementsByTagName("a");
+     
+        for(var i in aList){
+      
+            if(aList.item(i).getAttribute('href') == 'http://shicaiD.github.io'){
+                aList.item(i).setAttribute("style","color: #C0C0C0;");
+            }
+        }
+    }
 </script>
-
-</body>
 </html>
     
   </div>
@@ -242,7 +270,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -256,7 +284,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
